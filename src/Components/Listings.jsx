@@ -114,7 +114,7 @@ function Listings() {
   }, []);
 
   if (dataIsLoading === false) {
-    console.log("Listings data fetched successfully:", allListings[0].location);
+    console.log("Listings data fetched successfully:", allListings[0]?.location);
   }
 
   if (dataIsLoading) {
