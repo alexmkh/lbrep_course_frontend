@@ -96,7 +96,7 @@ function Listings() {
     const GetAllListings = async () => {
       try {
         const response = await Axios.get(
-          "http://lbrep.alexmkh.com.es/api/listings/",
+          "https://lbrep.alexmkh.com.es/api/listings/",
           { cancelToken: source.token }
         );
         // console.log(response.data);
