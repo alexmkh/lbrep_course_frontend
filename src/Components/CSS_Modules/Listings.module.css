@@ -1,0 +1,23 @@
+.cardStyle {
+  margin: 0.5rem;
+  border: 1px solid black;
+  position: relative;
+}
+
+.pictureStyle {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  height: 20rem;
+  width: 30rem;
+  cursor: pointer;
+}
+
+.priceOverlay {
+  position: absolute;
+  background-color: green;
+  color: white;
+  z-index: 1000;
+  top: 100px;
+  left: 20px;
+  padding: 5px;
+}

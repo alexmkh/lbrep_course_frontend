@@ -1,0 +1,84 @@
+.appBar {
+  background-color: black;
+}
+
+.btnLeft {
+  margin-right: auto;
+}
+
+.mr2 {
+  margin-right: 2rem;
+}
+
+.ml2, .dashboardBtn {
+  margin-left: 2rem;
+}
+
+.toolbar {
+  display: flex;
+}
+
+.btnsRight {
+  margin-left: auto;
+  margin-right: 10rem;
+}
+
+
+/* <Button sx={{backgroundColor: 'green', color: 'white', fontSize: "1.1rem", marginRight: "1rem", width: "15rem", "&:hover": {
+              backgroundColor: "blue",}}}>Add Property</Button> */
+
+.addPropertyBtn {
+  background-color: green;
+  color: white;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  width: 15rem;
+}
+.addPropertyBtn:hover {
+  background-color: blue;
+}
+
+            /* <Button sx={{backgroundColor: 'white', color: 'black', fontSize: "1.1rem", marginLeft: "1rem", width: "15rem", "&:hover": {
+              backgroundColor: "yellow",}}}>Login</Button> */
+
+.loginBtn {
+  background-color: white;
+  color: black;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  width: 15rem;
+}
+.loginBtn:hover {
+  background-color: yellow;
+}
+
+      /* <img src={city} style={{width: "100%", height: "90vh"}} /> */
+
+.backImg {
+  width: 100%;
+  height: 85vh;
+}
+
+.profileBtn, .boroughMenuItem {
+  color: black;
+  background-color: green;
+  font-weight: bolder;
+  width: 15rem;
+  border-radius: 15px;
+  margin-bottom: 0.25rem;
+}
+.profileBtn:hover, .boroughMenuItem:hover {
+  background-color: blue;
+}
+
+.logoutBtn {
+  color: black;
+  background-color: red;
+  font-weight: bolder;
+  width: 15rem;
+  border-radius: 15px;
+}
+.logoutBtn:hover {
+  height: 5rem;
+  background-color: red;
+}
