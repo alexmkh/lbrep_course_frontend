@@ -15,6 +15,8 @@ import defaultAgencyImage from "./Assets/defaultAgencyImage.png";
 
 import ProfileUpdate from "./ProfileUpdate";
 
+import API_URL from "../plugins/BaseUrl";
+
 // MUI imports
 import {
   Grid,
@@ -63,7 +65,9 @@ const Agencies = () => {
   useEffect(() => {
     const GetAgencies = async () => {
       try {
-        const response = await Axios.get(`http://localhost:8000/api/profiles/`);
+        // const response = await Axios.get(`http://localhost:8000/api/profiles/`);
+        console.log("Fetching agencies from API_URL", API_URL("profiles"));
+        const response = await Axios.get(API_URL("profiles/"));
         dispatch({
           type: "catchAgencies",
           agenciesArray: response.data,
@@ -98,7 +102,7 @@ const Agencies = () => {
       style={{ padding: "10px" }}
     >
       {state.agenciesList.map((agency) => {
-        
+
         function PropertiesDisplay() {
           if (agency.seller_listings.length === 0) {
             return (

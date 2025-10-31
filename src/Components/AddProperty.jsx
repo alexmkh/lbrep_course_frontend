@@ -21,6 +21,9 @@ import { ToastSuccess } from "../plugins/Toast";
 
 import { useGeoData } from "./GeoDataContext";
 
+import API_URL from "../plugins/BaseUrl";
+
+
 
 // MUI imports
 import {
@@ -70,10 +73,12 @@ const rentalFrequencyOptions = [
   { value: "Day", label: "Day" },
 ];
 
+
 function AddProperty() {
   const navigate = useNavigate();
   const GlobalState = useContext(StateContext);
-  const URL = "http://localhost:8000/api/listings/create/";
+  // const URL = "http://localhost:8000/api/listings/create/";
+  const URL = API_URL("listings/create");
 
   const {
     geoData,
@@ -367,7 +372,8 @@ function AddProperty() {
     const GetProfileInfo = async () => {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          // `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          API_URL(`profiles/${GlobalState.userId}`),
         );
         console.log("Response data received");
         console.log(response.data);
