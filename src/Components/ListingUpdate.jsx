@@ -131,9 +131,6 @@ function ListingUpdate({ listingData, closeDialog }) {
     console.log("Form submitted");
     dispatch({ type: "changeSendRequest" });
     dispatch({ type: "disableTheButton" });
-    // ToastSuccess().fire("Your property is being updated...").then(() => {
-    //   // navigate(0);
-    // });
   };
 
   // Use effect to send the form data to the backend
