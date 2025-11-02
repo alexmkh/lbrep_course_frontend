@@ -25,6 +25,8 @@ import StateContext from "../Contexts/StateContext";
 import styles from "./CSS_Modules/Profile.module.css";
 import { ToastSuccess } from "../plugins/Toast";
 
+import API_URL, {HostURL} from "../plugins/BaseUrl";
+
 function ProfileUpdate(props) {
   // Global state
   const GlobalState = useContext(StateContext);
@@ -110,7 +112,8 @@ function ProfileUpdate(props) {
 
         try {
           const response = await Axios.patch(
-            `http://localhost:8000/api/profiles/${GlobalState.userId}/update/`,
+            // `http://localhost:8000/api/profiles/${GlobalState.userId}/update/`,
+            API_URL(`profiles/${GlobalState.userId}/update/`),
             formData
           );
           dispatch({ type: "openTheSnack" });

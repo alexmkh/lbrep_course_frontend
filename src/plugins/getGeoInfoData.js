@@ -1,4 +1,7 @@
 import Axios from "axios";
+
+
+
 let areaOptions = [
   { value: "", label: "" },
   // { value: "Inner London", label: "Inner London" },
@@ -7,7 +10,10 @@ let areaOptions = [
 
 const GetAreaList = async () => {
   try {
-    const response = await Axios.get("http://localhost:8000/api/areas/");
+    const response = await Axios.get(
+      // "http://localhost:8000/api/areas/"
+      API_URL("areas/")
+    );
     console.log("Response data received");
     console.log(response.data);
     response.data.map((areaObject) => {
@@ -26,7 +32,10 @@ export { GetAreaList };
 
 const GetBoroughList = async () => {
   try {
-    const response = await Axios.get("http://localhost:8000/api/boroughs/");
+    const response = await Axios.get(
+      // "http://localhost:8000/api/boroughs/"
+      API_URL("boroughs/")
+    );
     console.log("Borough' data received");
     console.log(response.data);
     // const filteredBoroughs = response.data.filter((borough) => borough.area === area);

@@ -10,6 +10,8 @@ import StateContext from "../Contexts/StateContext";
 import defaultBusinessMan from "./Assets/defaultBusinessman.jpg";
 import defaultAgencyImage from "./Assets/defaultAgencyImage.png";
 
+import API_URL, {HostURL} from "../plugins/BaseUrl";
+
 
 // MUI imports
 import {
@@ -93,7 +95,8 @@ const AgencyDetail = () => {
     const GetProfileInfo = async () => {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${id}/`
+          // `http://localhost:8000/api/profiles/${id}/`
+          API_URL(`profiles/${id}/`)
         );
         dispatch({
           type: "catchUserProfileInfo",
@@ -186,9 +189,12 @@ const AgencyDetail = () => {
                     component="img"
                     height="140"
                     image={
-                      `http://localhost:8000${listing.picture1}`
-                        ? `http://localhost:8000${listing.picture1}`
-                        : defaultAgencyImage
+                      // `http://localhost:8000${listing.picture1}`
+                      //   ? `http://localhost:8000${listing.picture1}`
+                      //   : defaultAgencyImage
+                      `${HostURL()}${listing.picture1}`
+                      ? `${HostURL()}${listing.picture1}`
+                      : defaultAgencyImage
                     }
                     alt="Listing Picture"
                     onClick={() => navigate(`/listings/${listing.id}`)}

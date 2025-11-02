@@ -8,6 +8,8 @@ import StateContext from "../Contexts/StateContext";
 
 import styles from "./CSS_Modules/Profile.module.css";
 
+import API_URL, {HostURL} from "../plugins/BaseUrl";
+
 // Assets
 import defaultBusinessMan from "./Assets/defaultBusinessman.jpg";
 // frontend / src / Components / Assets / defaultBusinessman.jpg;
@@ -73,7 +75,8 @@ function Profile() {
     const GetProfileInfo = async () => {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          // `http://localhost:8000/api/profiles/${GlobalState.userId}/`
+          API_URL(`profiles/${GlobalState.userId}/`)
         );
         dispatch({
           type: "catchUserProfileInfo",

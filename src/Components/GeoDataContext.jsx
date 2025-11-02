@@ -8,6 +8,8 @@ import {
 } from "react";
 import Axios from "axios";
 
+import API_URL from "../plugins/BaseUrl";
+
 export const GeoDataContext = createContext(null);
 
 
@@ -38,7 +40,8 @@ export const GeoDataProvider = ({ children }) => {
     setGeoDataError(null);
 
     try {
-      const res = await Axios.get("http://localhost:8000/api/areas/");
+      // const res = await Axios.get("http://localhost:8000/api/areas/");
+      const res = await Axios.get(API_URL("areas/"));
 
       // создаем промис, который разрешится после обновления состояния
       const stateUpdated = new Promise((resolve) => {

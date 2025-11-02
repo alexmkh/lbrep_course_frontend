@@ -18,6 +18,8 @@ import hospitalIconPng from "./Assets/Mapicons/hospital.png";
 import ListingUpdate from "./ListingUpdate.jsx";
 import POIPhoto from "./POIPhoto.jsx";
 
+import API_URL, {HostURL} from "../plugins/BaseUrl";
+
 // React leaflet
 import {
   MapContainer,
@@ -128,7 +130,8 @@ const ListingDetail = () => {
     const GetListingInfo = async () => {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/listings/${id}/`
+          // `http://localhost:8000/api/listings/${id}/`
+          API_URL(`listings/${id}/`
         );
         dispatch({
           type: "catchListingInfo",
@@ -152,7 +155,8 @@ const ListingDetail = () => {
     const GetProfileInfo = async () => {
       try {
         const response = await Axios.get(
-          `http://localhost:8000/api/profiles/${state.listingInfo.seller}/`
+          // `http://localhost:8000/api/profiles/${state.listingInfo.seller}/`
+          API_URL(`profiles/${state.listingInfo.seller}/`
         );
         dispatch({
           type: "catchSellerProfileInfo",
@@ -202,7 +206,8 @@ const ListingDetail = () => {
       dispatch({ type: "disableTheButton" });
       try {
         const response = await Axios.delete(
-          `http://localhost:8000/api/listings/${id}/delete/`,
+          // `http://localhost:8000/api/listings/${id}/delete/`,
+          API_URL(`listings/${id}/delete/`),
           {
             headers: { Authorization: `Bearer ${GlobalState.userToken}` },
           }

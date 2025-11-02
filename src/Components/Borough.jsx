@@ -6,6 +6,7 @@ import { Grid } from "@mui/material";
 import styles from "./CSS_Modules/AddProperty.module.css";
 
 import { useGeoData } from "./GeoDataContext";
+import API_URL from "../plugins/BaseUrl";
 // import TheMapComponent from "./TheMapComponent";
 
 // Boroughs border coordinates imports
@@ -125,10 +126,12 @@ const Borough = () => {
     const syncGeoData = async () => {
       try {
         console.log("🧹 Удаляем старые записи...");
-        await Axios.delete("http://localhost:8000/api/boroughs/delete_all/");
+        // await Axios.delete("http://localhost:8000/api/boroughs/delete_all/");
+        await Axios.delete(API_URL("boroughs/delete_all/"));
         while (true) {
           const checkRes = await Axios.get(
-            "http://localhost:8000/api/boroughs/"
+            // "http://localhost:8000/api/boroughs/"
+            API_URL("boroughs/")
           );
           if (checkRes.data.length === 0) break;
           console.log("⏳ Ожидание удаления...");
@@ -137,7 +140,8 @@ const Borough = () => {
         console.log("✅ Все boroughs удалены");
 
         console.log("📦 Загружаем areas...");
-        const areaRes = await Axios.get("http://localhost:8000/api/areas/");
+        // const areaRes = await Axios.get("http://localhost:8000/api/areas/");
+        const areaRes = await Axios.get(API_URL("areas/"));
         const areas = areaRes.data;
         setAreaOptions(areas);
         console.log("✅ Areas загружены:", areas);
@@ -176,7 +180,8 @@ const Borough = () => {
 
             try {
               const boroughRes = await Axios.post(
-                "http://localhost:8000/api/boroughs/create/",
+                // "http://localhost:8000/api/boroughs/create/",
+                API_URL("boroughs/create/"),
                 formData
               );
 
@@ -189,7 +194,8 @@ const Borough = () => {
               };
 
               await Axios.post(
-                "http://localhost:8000/api/boroughborders/",
+                // "http://localhost:8000/api/boroughborders/",
+                API_URL("boroughborders/"),
                 borderPayload
               );
 
