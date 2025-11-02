@@ -131,7 +131,7 @@ const ListingDetail = () => {
       try {
         const response = await Axios.get(
           // `http://localhost:8000/api/listings/${id}/`
-          API_URL(`listings/${id}/`
+          API_URL(`listings/${id}/`)
         );
         dispatch({
           type: "catchListingInfo",
@@ -156,7 +156,7 @@ const ListingDetail = () => {
       try {
         const response = await Axios.get(
           // `http://localhost:8000/api/profiles/${state.listingInfo.seller}/`
-          API_URL(`profiles/${state.listingInfo.seller}/`
+          API_URL(`profiles/${state.listingInfo.seller}/`)
         );
         dispatch({
           type: "catchSellerProfileInfo",
